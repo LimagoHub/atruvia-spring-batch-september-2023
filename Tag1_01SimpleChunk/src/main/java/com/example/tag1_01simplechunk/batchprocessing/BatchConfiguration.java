@@ -3,6 +3,7 @@ package com.example.tag1_01simplechunk.batchprocessing;
 import com.example.tag1_01simplechunk.entity.Person;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.repository.JobRepository;
@@ -23,6 +24,7 @@ import javax.sql.DataSource;
 @Configuration
 public class BatchConfiguration {
     @Bean
+    @StepScope
     public FlatFileItemReader<Person> reader() {
         var flatFileItemReader = new FlatFileItemReaderBuilder<Person>()
                 .name("personItemReader")
