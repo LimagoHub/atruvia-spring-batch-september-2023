@@ -1,4 +1,4 @@
-package com.example.tag1_01simplechunk.runner;
+package com.example.partitionierer.runner;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -11,15 +11,28 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-@Component
 @RequiredArgsConstructor
+@Component
 public class AppRunner implements CommandLineRunner {
+
 
     private final JobLauncher jobLauncher;
     private final Job job;
+
     @Override
     public void run(final String... args) throws Exception {
-        JobExecution jobExecution = jobLauncher.run(job, new JobParametersBuilder().addString("UUID", UUID.randomUUID().toString()).toJobParameters());
+
+
+
+        JobExecution jobExecution = jobLauncher.run(job, new JobParametersBuilder()
+                .addString("UUID", UUID.randomUUID().toString())
+                .addString("inputFile", "/Users/xgadpfg/git/Partitionierer/src/main/resources/xy-data.csv")
+                .addString("prefix", "a")
+                        .addLong("partitionSize", 10L)
+                        .addString("workingDirectory", "/Users/xgadpfg/git/Partitionierer/src/main/resources")
+                .toJobParameters()
+        );
+
         System.out.println(jobExecution.getStatus());
     }
 }

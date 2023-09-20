@@ -31,7 +31,7 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
             jdbcTemplate.query("SELECT first_name, last_name FROM people",
                     (rs, row) -> new Person(
                             rs.getString(1),
-                            rs.getString(2))
+                            rs.getString(2),0)
             ).forEach(person -> log.info("Found <{{}}> in the database.", person));
         }
     }
