@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SystemCommandTaskletDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SystemCommandTaskletDemoApplication.class, args);
+
+        System.exit(SpringApplication.exit(SpringApplication.run(SystemCommandTaskletDemoApplication.class, args)));
     }
 
 }

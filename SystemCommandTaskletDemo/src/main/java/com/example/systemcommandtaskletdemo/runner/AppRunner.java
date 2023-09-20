@@ -21,7 +21,7 @@ public class AppRunner implements CommandLineRunner {
     @Override
     public void run(final String... args) throws Exception {
         System.out.println( "\nErzeuge Datei" );
-        JobExecution je = jobLauncher.run( job, new JobParametersBuilder().addString("UUID", UUID.randomUUID().toString()).toJobParameters() );
+        JobExecution je = jobLauncher.run( job, new JobParametersBuilder().addString("filename", "../umsaetze.csv").addString("UUID", UUID.randomUUID().toString()).toJobParameters() );
         System.out.println( je.getStatus());
     }
 }
