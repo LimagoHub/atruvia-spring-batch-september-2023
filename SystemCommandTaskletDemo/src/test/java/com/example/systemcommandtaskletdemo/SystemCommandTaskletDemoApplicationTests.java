@@ -1,0 +1,13 @@
+package com.example.systemcommandtaskletdemo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class SystemCommandTaskletDemoApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
