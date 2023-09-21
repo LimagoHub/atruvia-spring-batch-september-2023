@@ -36,8 +36,9 @@ public class BatchConfig {
 
 
     @Bean
-
-    public Step step1(Tasklet task1) {
+    @JobScope
+    public Step step1(Tasklet task1,@Value("#{jobParameters[filename]}") String filename) {
+        System.out.println(filename);
         return new StepBuilder("step1", repository).tasklet( task1, transactionManager ).build();
     }
 
